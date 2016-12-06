@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<!DOCTYPE I2CEConfiguration SYSTEM "I2CE_Configuration.dtd">
+<I2CEConfiguration name="lbnm_Person">
+  <metadata>
+    <displayName>LBNM Person</displayName>
+    <category>Site</category>
+    <description>LBNM Person Information</description>
+    <creator>Jean Paul Mutali</creator>
+    <email>mutali@gmail.com</email>
+    <link>https://launchpad.net/ihris+lbnm</link>
+    <version>4.2.0</version>
+    <requirement name="ihris-qualify">
+      <atLeast version="4.2" />
+      <lessThan version="4.3" />
+    </requirement>
+    <path name="templates">
+      <value>./templates</value>
+    </path>
+    <priority>360</priority>
+  </metadata>
+  <configurationGroup name="nbnm_Person" path="/I2CE">
+    <configurationGroup name="person_class" path="/modules/forms/formClasses/nbnm_Person">
+      <configuration name="extends">
+        <version>4.2.1.3</version>
+        <displayName>The class this form extends</displayName>
+        <value>iHRIS_Person</value>
+      </configuration>
+      <configurationGroup name="fields">
+        <version>4.2.1.3</version>
+        <configurationGroup name="middlename">
+          <configuration name="formfield">
+            <value>STRING_LINE</value>
+          </configuration>
+          <configuration name="headers" type="delimited" locale="en_US">
+            <displayName>The headers for this field.</displayName>
+            <value>default:Middle Name</value>
+          </configuration>
+        </configurationGroup>
+        <configurationGroup name="residence">
+          <configuration name="in_db" type="boolean">
+            <displayName>This field is required to be set</displayName>
+            <version>4.2.1.3</version>
+            <value>false</value>
+          </configuration>
+          <configuration name="required" type="boolean">
+            <displayName>This field is required to be set</displayName>
+            <version>4.2.1.3</version>
+            <value>false</value>
+          </configuration>
+        </configurationGroup>
+        <configurationGroup name="home">
+          <configuration name="formfield">
+            <version>4.2.1.3</version>
+            <displayName>The form field type</displayName>
+            <value>MAP</value>
+          </configuration>
+          <configurationGroup name="meta">
+            <configuration name="form" values="many">
+              <value>district</value>
+              <value>region</value>
+            </configuration>
+            <configurationGroup name="limits">
+              <configurationGroup name="default">
+                <configurationGroup name="country">
+                  <version>4.2.1.3</version>
+                  <configuration name="operator">
+                    <value>FIELD_LIMIT</value>
+                  </configuration>
+                  <configuration name="field">
+                    <value>location</value>
+                  </configuration>
+                  <configuration name="style">
+                    <value>yes</value>
+                  </configuration>
+                  <configuration name="required" type="boolean">
+                    <displayName>This field is required to be set</displayName>
+                    <value>false</value>
+                  </configuration>
+                </configurationGroup>
+              </configurationGroup>
+            </configurationGroup>
+            <configurationGroup name="display">
+              <version>4.2.1.3</version>
+              <configurationGroup name="default">
+                <configuration name="fields">
+                  <value>district:[region]:country</value>
+                </configuration>
+              </configurationGroup>
+            </configurationGroup>
+          </configurationGroup>
+          <configuration name="headers" type="delimited" values="many" locale="en_US">
+            <version>4.2.1.3</version>
+            <displayName>The headers for this field.</displayName>
+            <value>default:Residence </value>
+          </configuration>
+        </configurationGroup>
+        
+      </configurationGroup>
+    </configurationGroup>
+    <configurationGroup name="person" path="/modules/forms/forms/person">
+      <version>4.1.1.3</version>
+      <configuration name="class" values="single">
+        <value>nbnm_Person</value>
+      </configuration>
+    </configurationGroup>
+  </configurationGroup>
+</I2CEConfiguration>

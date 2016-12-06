@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE I2CEConfiguration SYSTEM "I2CE_Configuration.dtd">
+<I2CEConfiguration name="Liberia-geography">
+  <metadata>
+    <displayName>iHRIS Qualify Geography for Liberia</displayName>
+    <description>iHRIS Qualify geography customizations for Liberia</description>
+    <category>Site</category>
+    <creator>Jean Paul Mutali</creator>
+    <email>mutali@gmail.com</email>
+    <link>https://launchpad.net/ihris+lbnm</link>
+    <version>4.2.0.0</version>
+    <requirement name="Geography">
+      <atLeast version="4.2" />
+    </requirement>
+    <path name="modules">
+      <value>./modules</value>
+    </path>
+  </metadata>
+  <configurationGroup name="Liberia-geography">
+    <displayName>Liberia Geography updates</displayName>
+    <configurationGroup name="county" path="/modules/forms/forms/county">
+      <configuration name="display" locale="en_US">
+        <value>City</value>
+      </configuration>
+    </configurationGroup>
+    <configurationGroup name="region" path="/modules/forms/forms/region">
+      <configuration name="display" locale="en_US">
+        <value>County</value>
+      </configuration>
+    </configurationGroup>
+    <configurationGroup name="district_region_headers" path="/modules/forms/formClasses/iHRIS_District/fields/region/headers">
+      <configuration name="default" locale="en_US">
+        <value>County</value>
+      </configuration>
+    </configurationGroup>
+  </configurationGroup>
+</I2CEConfiguration>

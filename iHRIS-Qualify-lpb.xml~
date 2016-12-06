@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!DOCTYPE I2CEConfiguration SYSTEM "I2CE_Configuration.dtd">
+<I2CEConfiguration name="ihris-qualify-site-lpb">
+  <metadata>
+    <displayName>iHRIS Qualify LPB</displayName>
+    <category>Site</category>
+    <description>the iHRIS Qualify LPB</description>
+    <version>4.2.2.1</version>
+    <path name="configs">
+      <value>./configs</value>
+    </path>
+   <requirement name="i2ce-site">
+      <atLeast version="4.2" />
+      <lessThan version="4.3" />
+    </requirement>
+
+    <requirement name="ihris-qualify">
+      <atLeast version="4.2" />
+      <lessThan version="4.3" />
+    </requirement>
+    <requirement name="UserAccess">
+      <atLeast version="4.2" />
+      <lessThan version="4.3" />
+    </requirement>
+	<!--Start require new modules -->
+	   
+    
+   	<!-- End require new modules -->
+	
+    <enable name="default-locales" />
+    <enable name="ReportArchiver" />
+    <enable name="PersonArchivedScan" />
+    <enable name="PersonContact" />
+    <enable name="PersonDemographic" />
+    <enable name="PersonID" />
+    <enable name="PersonArchivedScan" />
+    <enable name="PersonPassportPhoto" />
+    <enable name="PersonResume" />
+    <enable name="PersonEducation" />
+    <!-- <enable name="ihris-qualify-sample-data" /> -->
+    <enable name="magicDataBrowser" />
+    <enable name="stub" />
+    <enable name="StretchPage" />
+    <enable name="messageBox" />
+    <enable name="messageNotice" />
+    <enable name="ihris-common-MassDeletePerson" />
+    <enable name="Currency" />
+    <path name="classes">
+      <value>./lib</value>
+    </path>
+    <path name="templates">
+      <value>./templates</value>
+    </path>
+    <path name="css">
+      <value>./css</value>
+    </path>
+    <path name="scripts">
+      <value>./scripts</value>
+    </path>
+    <path name="modules">
+      <value>./modules</value>
+    </path>
+    <path name="images">
+      <value>./images</value>
+    </path>
+    <priority>300</priority>
+  </metadata>
+  <configurationGroup name="ihris-qualify-site-lpb" path="/I2CE">
+    <displayName>iHRIS Qualify LPB</displayName>
+    <status>advanced:false</status>
+    <configurationGroup name="feedback">
+      <displayName>Feedback Information</displayName>
+      <status>required:false</status>
+      <configuration name="email" path="to" values="single">
+        <displayName>Email Address</displayName>
+      </configuration>
+      <configuration name="subject" values="single">
+        <displayName>Subject Line</displayName>
+      </configuration>
+    </configurationGroup>
+    <configuration name="file_search_stale_time" path="/I2CE/fileSearch/stale_time">
+      <displayName>Stale Time</displayName>
+      <description>The time in seconds until a file found in the file search utility is considered stale. If stale, it will search for the file, if not stale, it will use the previously found location of the file (it will cache the file location). If negative, then we do not cache the file location.</description>
+      <status>required:true</status>
+      <status>validate:integer,nonempty</status>
+      <value>600</value>
+    </configuration>
+    <configurationGroup name="template">
+      <displayName>Template Information</displayName>
+      <description>Various Default Information About The Templating System</description>
+      <status>advanced:false</status>
+      <status>required:true</status>
+      <configuration name="prefix_title" values="single" locale="en_US">
+        <displayName>Page title prefix</displayName>
+        <description>Do I really want this here... should we have an attribute to declare it to overwrite?</description>
+        <value>iHRIS Qualify LBNM</value>
+      </configuration>
+    </configurationGroup>
+    <configurationGroup name="pdf_options" path="/modules/report-pdf/PDF/display-options">
+      <displayName>PDF Options</displayName>
+      <status>visible:false</status>
+      <configurationGroup name="header">
+        <displayName>Header Options</displayName>
+        <configuration name="text" locale="en_US">
+          <displayName>Header Text</displayName>
+          <value>iHRIS Qualify LPB</value>
+        </configuration>
+      </configurationGroup>
+    </configurationGroup>
+	
+	<!-- NEW STUFF ADDED HERE -->
+	
+	<!-- END NEW STUFF -->
+  </configurationGroup>
+</I2CEConfiguration>
